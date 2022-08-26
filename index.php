@@ -60,7 +60,7 @@ if (isset($_POST['action'])) {
         $data['message'] = $records;
     } else if ($_POST['action'] == 'deleteJob') {
         $job_id = $_POST['job_id'];
-        $query = "DELETE * FROM `jobs` where `job_id`='$job_id'";
+        $query = "DELETE FROM `jobs` where `job_id`='$job_id'";
         $result = mysqli_query($connection, $query);
         $records = mysqli_fetch_assoc($result);
         $data['message'] = $records;
@@ -88,6 +88,28 @@ if (isset($_POST['action'])) {
         $job_id = $_POST['job_id'];
         $query = "DELETE from `jobs` where `job_id`='$job_id'";
         $result = mysqli_query($connection, $query);
+        $data["message"] = $result;
+    } else if ($_POST['action'] == 'emCreateJob') {
+        $job_title = $_POST['job_title'];
+        $company_name = $_POST['company_name'];
+        $salary = $_POST['salary'];
+        $type = $_POST['type'];
+        $location = $_POST['location'];
+        $requirements = $_POST['requirements'];
+        $application_deadline = $_POST['application_deadline'];
+        $date_posted = $_POST['date_posted'];
+        $recruiter_id = $_SESSION['user']['recruiter_id'];
+
+        $query = "INSERT INTO `jobs` (`job_title`,`salary`,`type`,`location`,`company_name`,`requirements`,`application_deadline`,`recruiter_id`,`date_posted`) VALUES ('$job_title','$salary','$type','$location','$company_name','$requirements','$application_deadline','$recruiter_id','$date_posted')";
+        $result = mysqli_query($connection, $query);
+        $data["message"] = $result;
+    } else if ($_POST['action'] == 'emDeleteJob') {
+        $job_id = $_POST['job_id'];
+        $query = "DELETE from `jobs` where `job_id`='$job_id'";
+        $result = mysqli_query($connection, $query);
+        $data["message"] = $result;
+    } else if ($_POST['action'] == 'emSignout') {
+        unset($_SESSION['user']);
         $data["message"] = $result;
     }
 }

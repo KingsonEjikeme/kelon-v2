@@ -208,13 +208,86 @@
           </ul>
         </div>
       </div>
+      <!-- Here Goes.... My Modal -->
     </div>
-    <script src="editor.dataTables.js"></script>
-    <script src="editor.bootstrap5.js"></script>
-    <script src="editor.bootstrap5.min.js"></script>
-    <script src="editor.dataTables.min.js"></script>
-    <script src="dataTables.editor.js"></script>
-    <script src="dataTables.editor.min.js"></script>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div
+            class="modal-header bg-dark bg-opacity-50 text-warning text-opacity-75"
+          >
+            <h5 class="modal-title" id="staticBackdropLabel">Update Job</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <table>
+              <tr>
+                <td class="fw-bold">Job Title:</td>
+                <td id="title">
+                  <input type="text" class="input" value="Dancer" />
+                </td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Company:</td>
+                <td id="company"></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Salary:</td>
+                <td id="salary"></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Type:</td>
+                <td id="type"></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Location:</td>
+                <td id="location"></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Requirements:</td>
+                <td id="requirements"></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Deadline:</td>
+                <td id="deadline"></td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="updateJob(this)"
+            >
+              Update Job
+            </button>
+            <span class="d-none" id="delete-job-id"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- JavaScript Bundle with Popper -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"

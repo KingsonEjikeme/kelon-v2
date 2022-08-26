@@ -1,6 +1,44 @@
 var atn1 = 500 //
 var atn2 = 800 //
+function emSignout(){
+    $.post('/kelon-moonhub/index.php',{
+        action: 'emSignout'
+    },(data,status)=>{
+        
+        
+        
+    });
+    window.location.href='/kelon-moonhub/auth.html';
+}
+function createJob(){
+    let job_title = $('#cj-title').val();
+    let company_name = $('#cj-company').val();
+    let salary = $('#cj-salary').val();
+    let type = $('#cj-type').val();
+    let location = $('#cj-location').val();
+    let requirements = $('#cj-requirements').val();
+    let application_deadline = $('#cj-deadline').val();
+    let date_posted = $('#cj-date-posted').val();
 
+    $.post('/kelon-moonhub/index.php',{
+
+        action: 'emCreateJob',
+        job_title: job_title,
+        company_name: company_name,
+        salary: salary,
+        type: type,
+        location: location,
+        requirements: requirements,
+        application_deadline: application_deadline,
+        date_posted: date_posted
+    },(data,status)=>{
+        console.log(status);
+            console.log(data);
+            alert("Job Creation Successful.");
+            window.location.href='/kelon-moonhub/em_dashboard.html';
+        });
+
+}
 
 function adDeleteJob(param){
     $.post('/kelon-moonhub/index.php',{
@@ -82,8 +120,18 @@ function adminLogin(){
 
 // Delete Single Job Function
 function deleteJob(job_id){
-    alert(job_id);
-    console.log($(job_id).next());
+    let getCookie = document.cookie
+    .split('; ')
+    .find((row) => row.startsWith('job_id:'))
+    ?.split(':')[1];
+
+    $.post('/kelon-moonhub/index.php',{
+        action: 'emDeleteJob',
+        job_id: getCookie
+    },(data,status)=>{
+        console.log(data);
+        window.location.href='/kelon-moonhub/em_dashboard.html';
+    });
 }
 
 
@@ -104,6 +152,7 @@ function viewSingleJob(job_id){
         $('#date-posted').text(new Date(res.date_posted).toDateString);
         $('#delete-job-id').text(res.job_id);
     });
+    document.cookie="job_id:"+job_id;
 }
 
 
@@ -136,7 +185,7 @@ function renderEmJobs(jobs){
                     <div class="card-body">
                       <h5 class="card-title">${jobs[i].job_title}</h5>
                       <p class="card-text">
-                      ${jobs[i].details}
+                      ${jobs[i].requirements}
                       </p>
                     </div>
                   </div>

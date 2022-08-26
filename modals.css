@@ -1,0 +1,12 @@
+.modall{
+    position: absolute !important;
+    background-color: red !important;
+    z-index: 999 !important;
+    top: 50px;
+}
+body{
+    position:  relative !important;
+}
+.container-fluid{
+    position: relative;
+}

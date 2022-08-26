@@ -74,17 +74,30 @@
         <div class="logo fw-bolder fs-4 text-primary" id="em-dropdown">
           MoonHub
         </div>
-        <button
-          class="btn float-right border-0 rounded-2 bg-light bg-opacity-25 px-2"
-        >
-          <span id="em_dropdown">Jane Doe</span>
-          <img
-            src="https://picsum.photos/200"
-            alt=""
-            width="30px"
-            class="img-fluid rounded-circle"
-          />
-        </button>
+        <div class="dropdown">
+          <button
+            class="btn btn-outline-light dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fa-solid fa-user text-dark"></i>
+            <span class="text-dark" id="em_dropdown">Opeoluwa</span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li>
+              <a class="dropdown-item" href="#" onclick="emProfile()"
+                >Profile</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" onclick="emSignout()"
+                >Sign out</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div class="row">
@@ -109,6 +122,8 @@
               <div>
                 <button
                   class="button bg-warning border-0 rounded-1 p-1 px-2 text-light"
+                  data-bs-toggle="modal"
+                  data-bs-target="#create-job"
                 >
                   Create Job+
                 </button>
@@ -116,7 +131,7 @@
             </div>
             <!-- Render Job Cards -->
             <div
-              class="job-cards d-flex flex-wrap justify-content-between"
+              class="job-cards d-flex flex-wrap justify-content-around"
               id="job-cards"
             ></div>
           </div>
@@ -222,8 +237,95 @@
               onclick="deleteJob(this)"
             >
               Delete Job
+              <div class="d-none" id="delete-job-id">Hello</div>
             </button>
-            <span class="d-none" id="delete-job-id"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--########################### CREATE JOB MODAL ################################-->
+    <div
+      class="modal fade"
+      id="create-job"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div
+            class="modal-header bg-dark bg-opacity-50 text-warning text-opacity-75"
+          >
+            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <table>
+              <tr>
+                <td class="fw-bold">Job Title:</td>
+                <td><input id="cj-title" type="text" /></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Company:</td>
+                <td><input type="text" id="cj-company" /></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Salary:</td>
+                <td><input type="text" id="cj-salary" /></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Type:</td>
+                <td><input type="text" id="cj-type" /></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Location:</td>
+                <td><input type="text" id="cj-location" /></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Requirements:</td>
+                <td>
+                  <textarea
+                    name="cj-requirements"
+                    id="cj-requirements"
+                    cols="30"
+                    rows="5"
+                  ></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Deadline:</td>
+                <td><input type="date" id="cj-deadline" /></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Date Posted:</td>
+                <td><input type="date" id="cj-date-posted" /></td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="createJob(this)"
+            >
+              Create Job
+            </button>
+            <!--Create Modal End -->
           </div>
         </div>
       </div>
