@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+    <!-- CSS only -->
+    <style>
+      .right {
+        height: 100vh;
+      }
+      .gradient-text {
+        background: -webkit-linear-gradient(
+          blue,
+          rgb(137, 198, 137),
+          blue,
+          rgb(174, 132, 174)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .custom-background {
+        background-image: url("images/custom-background.png");
+      }
+    </style>
+    <link rel="stylesheet" href="modals.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/c1ef7fc1d6.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Document</title>
+  </head>
+  <body
+    class="bg-white"
+    style="background: url('auth_bg.jpg'); background-size: cover"
+  >
+    <div class="container-fluid g-0 d-flex">
+      <div class="left col-6 d-md-block w-50">
+        <div class="logo col-7 fw-bolder fs-4 text-primary pt-4 ms-5">
+          MoonHub
+        </div>
+      </div>
+      <div
+        class="right w-100 w-md-50 float-right bg-white bg-opacity-75 pt-5 px-5"
+      >
+        <!-- On Signup -->
+        <span id="auth_span" class="w-100 bg-opacity-25"></span>
+        <div class="container d-flex align-items-center flex-column">
+            <img src="incognito.jpg" alt="" width="200px" height="200px"class="rounded-circle">
+            <div class="auth-signin mb-3">
+                <span
+                  id="auth-title"
+                  class="auth-signup d-flex justify-content-between"
+                >
+                  <div>
+                    <h4 class="fs-2">Top Secret Sign in</h4>
+                  </div>
+      
+                  
+                </span>
+                
+              </div>
+        </div>
+        
+        
+        <div class="form-group">
+          <div class="row mb-2">      
+          <!-- Email -->
+          <div class="form-floating col-12 mb-2">
+            <input
+              id="email"
+              type="email"
+              class="form-control bg-transparent"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput" class="ps-3">Email</label>
+          </div>
+          <!-- Password -->
+          <div class="form-floating col-12 mb-2">
+            <input
+              id="password"
+              type="password"
+              class="form-control bg-transparent"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput" class="ps-3">Password</label>
+          </div>
+          <div class="row mb-3 auth-signup">
+           
+          </div>
+          <div class="d-flex justify-content-center">
+            <button
+            class="btn btn-primary btn-opacity-50 py-2 w-100 text-center auth-signin"
+            onclick="adminLogin(window.location.href)"
+          >
+            Sign in
+          </button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

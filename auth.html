@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+    <!-- CSS only -->
+    <style>
+      .right {
+        height: 100vh;
+      }
+      .gradient-text {
+        background: -webkit-linear-gradient(
+          blue,
+          rgb(137, 198, 137),
+          blue,
+          rgb(174, 132, 174)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .custom-background {
+        background-image: url("images/custom-background.png");
+      }
+    </style>
+    <link rel="stylesheet" href="modals.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/c1ef7fc1d6.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Document</title>
+  </head>
+  <body
+    class="bg-white"
+    style="background: url('auth_bg.jpg'); background-size: cover"
+  >
+    <div class="container-fluid g-0 d-flex">
+      <div class="left col-6 d-md-block w-50">
+        <div class="logo col-7 fw-bolder fs-4 text-primary pt-4 ms-5">
+          MoonHub
+        </div>
+      </div>
+      <div
+        class="right w-100 w-md-50 float-right bg-white bg-opacity-75 pt-5 px-5"
+      >
+        <!-- On Signup -->
+        <span id="auth_span" class="w-100 bg-opacity-25"></span>
+        <div class="auth-signup">
+          <span
+            id="auth-title"
+            class="auth-signup d-flex justify-content-between"
+          >
+            <div>
+              <h4 class="fs-2"><span class="userType"></span> Sign up</h4>
+            </div>
+
+            <div class="float-right">
+              <a
+                href=""
+                class="text-decoration-none"
+                onclick="renderJobSeeker()"
+                >Continue as Job Seeker</a
+              >
+            </div>
+          </span>
+          <p>
+            Have an account already?
+            <a class="text-decoration-none" onclick="renderSignin()">Sign in</a>
+          </p>
+        </div>
+        <!-- On Signin -->
+        <div class="auth-signin d-none">
+          <span
+            id="auth-title"
+            class="auth-signup d-flex justify-content-between"
+          >
+            <div>
+              <h4 class="fs-2"><span class="userType"></span> Sign in</h4>
+            </div>
+
+            <div class="float-right">
+              <a
+                href=""
+                class="text-decoration-none"
+                onclick="renderJobSeeker()"
+                >Continue as Employer</a
+              >
+            </div>
+          </span>
+          <p>
+            Don't have an account already?
+            <a class="text-decoration-none" onclick="renderSignup()">Sign up</a>
+          </p>
+        </div>
+        <div class="form-group">
+          <div class="row mb-2">
+            <!-- Firstname -->
+            <div class="form-floating col-6 auth-signup">
+              <input
+                id="firstname"
+                type="text"
+                class="form-control bg-transparent"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput" class="ps-4">Firstname</label>
+            </div>
+            <!-- Lastname -->
+            <div class="form-floating col-6 auth-signup">
+              <input
+                id="lastname"
+                type="text"
+                class="form-control bg-transparent"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput" class="ps-4">Lastname</label>
+            </div>
+          </div>
+          <div class="row mb-2 auth-signup">
+            <!-- Company Name -->
+            <div class="form-floating col-6">
+              <input
+                id="company_name"
+                type="text"
+                class="form-control bg-transparent"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput" class="ps-4">Company Name</label>
+            </div>
+            <!-- Phone Number -->
+            <div class="form-floating col-6">
+              <input
+                id="phone"
+                type="tel"
+                class="form-control bg-transparent"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput" class="ps-4">Phone Number</label>
+            </div>
+          </div>
+          <!-- Industry -->
+          <div class="form-floating col-12 mb-2 auth-signup">
+            <input
+              id="industry"
+              type="text"
+              class="form-control bg-transparent"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput" class="ps-3">Company Industry</label>
+          </div>
+          <!-- Email -->
+          <div class="form-floating col-12 mb-2">
+            <input
+              id="email"
+              type="email"
+              class="form-control bg-transparent"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput" class="ps-3">Email</label>
+          </div>
+          <!-- Password -->
+          <div class="form-floating col-12 mb-2">
+            <input
+              id="password"
+              type="password"
+              class="form-control bg-transparent"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput" class="ps-3">Password</label>
+          </div>
+          <div class="row mb-3 auth-signup">
+            <!-- City -->
+            <div class="form-floating col-6">
+              <input
+                id="city"
+                type="text"
+                class="form-control bg-transparent"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput" class="ps-4">City</label>
+            </div>
+            <!-- State -->
+            <div class="form-floating col-6">
+              <input
+                id="state"
+                type="text"
+                class="form-control bg-transparent"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput" class="ps-4">State</label>
+            </div>
+          </div>
+          <!-- Create Account -->
+          <button
+            class="btn btn-primary btn-opacity-50 py-2 auth-signup"
+            onclick="createAccount()"
+          >
+            Create Account
+          </button>
+          <button
+            class="btn btn-primary btn-opacity-50 py-2 auth-signin d-none"
+            onclick="login()"
+          >
+            Sign in
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
